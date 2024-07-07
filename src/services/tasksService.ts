@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Task } from '../types/Task';
-import {Cookies} from 'js-cookie'
+import Cookies from 'js-cookie'
 
 const API_URL = import.meta.env.VITE_TASKS_API_URL;
 
