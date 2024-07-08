@@ -14,7 +14,7 @@ export default function SignIn() {
             await signUp({ username, password });
             setSucessMessage(true);
             setTimeout(() => {
-                navigate('/');
+                navigate('/signin');
             }, 2000);
         } catch (error) {
             console.error('Invalid credentials', error);
