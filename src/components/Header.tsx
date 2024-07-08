@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <div className="flex justify-between px-4 py-4 bg-stone-800 text-white font-sans">
             <div className="flex items-center font-bold">
-                <h1>Task Manager</h1>
+            <Link to="/">Task Manager</Link>
             </div>
             <div className="flex items-center space-x-4 font-bold">
                 <Link to="/signin">Sign In</Link>
