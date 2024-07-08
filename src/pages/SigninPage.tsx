@@ -6,7 +6,7 @@ export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const [successMessage, setSucessMessage] = useState(false)
+    const [successMessage, setSucessMessage] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -38,7 +38,7 @@ export default function SignIn() {
                    className="w-full p-4 border rounded-lg shadow-md mb-2"
                    placeholder='Enter your password'
                    />
-            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg'>
+            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg bg-stone-600 text-white'>
                 Submit
             </button>
             {successMessage && (
