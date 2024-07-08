@@ -38,7 +38,10 @@ export default function SignIn() {
                    className="w-full p-4 border rounded-lg shadow-md mb-2"
                    placeholder='Enter your password'
                    />
-            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg'>
+            <label className='text-xs font-bold mb-2'>
+                At least 8 digits required. 1 upper letter, number and character.
+            </label>
+            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg bg-stone-600 text-white'>
                 Submit
             </button>
             {successMessage && (
