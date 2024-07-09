@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTasks, createTask } from "../../services/tasksService";
-import { Task } from "../../types/Task";
+import { Task, TaskStatus } from "../../types/Task";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,11 +11,30 @@ export function TasksList() {
     const [description, setDescription] = useState('');
     const [loading, setLoading] = useState(true);
 
+
+    const standardizeStatus = (status : TaskStatus) => {
+        switch(status.toUpperCase()) {
+            case 'TO DO':
+                return 'Done';
+            case 'IN_PROGRESS':
+                return 'In Progress';
+            case 'DONE' :
+                return 'In Progress';
+            default : return 'TO DO';
+        }
+    }
+
     useEffect(() => {
         const fetchTasks = async () => {
             try {
                 const data = await getTasks();
-                setTasks(data)
+                // Standardize task status
+                const standardizedTasks = data.map((task) => ({
+                    ...task,
+                    status: standardizeStatus(task.status) as TaskStatus,
+                }));
+                console.log("Fetched tasks:", standardizedTasks);
+                setTasks(standardizedTasks);
             } catch (error) {
                 console.error("Failed to fetch tasks:", error);
             } finally {
@@ -37,6 +56,15 @@ export function TasksList() {
             console.log('Failed to create task', error);
         }
     }
+
+    const statuses : TaskStatus[] = ['To Do', 'In Progress', 'Done']
+    const groupedTasks: { [key in TaskStatus]: Task[] } = {
+        'To Do': tasks.filter(task => task.status === 'To Do'),
+        'In Progress': tasks.filter(task => task.status === 'In Progress'),
+        'Done': tasks.filter(task => task.status === 'Done'),
+    };
+
+    console.log("Grouped tasks:", groupedTasks);
 
     return (
         <div className="max-w-4xl mx-auto mt-12">
@@ -69,14 +97,23 @@ export function TasksList() {
                     <FontAwesomeIcon icon={faSpinner} spin size="3x" />
                 </div>
             ) : (
-                <div className="p-4 border bg-slate-200 shadow-md">
-                    {tasks.map((task) => (
-                        <div>
-                            <h1>{task.title}</h1>
-                            <p>{task.description}</p>
+                <div className="flex space-x-4 overflow-x-auto">
+                    {statuses.map((status) => (
+                        <div key={status} className="flex-shrink-0 w-80">
+                             <h3 className="text-xl font-bold mb-4">{status}</h3>
+                             {groupedTasks[status].length === 0 ? (
+                                <p className="text-gray-500">Empty</p>
+                             ) : (
+                                groupedTasks[status].map((task) => (
+                                    <div key={task.id} className="bg-white border border-gray-200 p-4 mb-4 shadow-md rounded-lg hover:shadow-lg transition duration-300">
+                                        <h3 className="font-bold text-xl">{task.title}</h3>
+                                        <p className="text-gray-600">{task.description}</p>
+                                    </div>
+                                ))
+                             )}
                         </div>
                     ))}
-                </div>
+            </div>
             )}
         </div>
     );
