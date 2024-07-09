@@ -59,7 +59,7 @@ export function TasksList() {
                     className="rounded-lg text-lg w-full p-4 mb-2 border border-gray-300"
                 />
                 <button
-                    className="rounded-lg text-sm w-full p-4 border mb-2 bg-stone-600 text-white hover:bg-stone-700 transition duration-300"
+                    className="rounded-lg text-sm w-full p-4 border mb-2 bg-emerald-500 text-white hover:bg-emerald-700 transition duration-300"
                 >
                     Submit
                 </button>

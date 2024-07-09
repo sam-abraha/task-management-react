@@ -38,7 +38,7 @@ export default function SignIn() {
                    className="w-full p-4 border rounded-lg shadow-md mb-2"
                    placeholder='Enter your password'
                    />
-            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg bg-stone-600 text-white'>
+            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg bg-emerald-500 hover:bg-emerald-700 text-white'>
                 Submit
             </button>
             {successMessage && (

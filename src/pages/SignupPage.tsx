@@ -41,7 +41,7 @@ export default function SignIn() {
             <label className='text-xs font-bold mb-2'>
                 At least 8 digits required. 1 upper letter, number and character.
             </label>
-            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg bg-stone-600 text-white'>
+            <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg bg-emerald-500 hover:bg-emerald-700 text-white'>
                 Submit
             </button>
             {successMessage && (
