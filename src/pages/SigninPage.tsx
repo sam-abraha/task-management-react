@@ -6,16 +6,12 @@ export default function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const [successMessage, setSucessMessage] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             await signIn({ username, password });
-            setSucessMessage(true);
-            setTimeout(() => {
-                navigate('/');
-            }, 2000);
+            navigate('/');
         } catch (error) {
             console.error('Invalid credentials', error);
         }
@@ -41,12 +37,6 @@ export default function SignIn() {
             <button className='w-full p-4 border rounded-lg shadow-md font-semibold text-lg bg-emerald-500 hover:bg-emerald-700 text-white'>
                 Submit
             </button>
-            {successMessage && (
-                <div className="text-center text-xl font-bold mt-4">
-                    <p>Boom. You're in. 🎉</p>
-                </div>
-            )}
-
         </form>
     );
 };
