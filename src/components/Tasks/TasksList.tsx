@@ -14,7 +14,7 @@ export function TasksList() {
 
     const standardizeStatus = (status: TaskStatus) => {
         switch (status.toUpperCase()) {
-            case 'TO DO':
+            case 'TO_DO':
                 return 'To Do';
             case 'IN_PROGRESS':
                 return 'In Progress';
@@ -48,8 +48,12 @@ export function TasksList() {
         e.preventDefault();
         try {
             const newTask = await createTask(title, description);
-            console.log("Created new task:", newTask);
-            setTasks([...tasks,newTask]);
+            const standardizedTask = {
+                ...newTask,
+                status: standardizeStatus(newTask.status) as TaskStatus,
+            };
+            console.log("Created new task:", standardizedTask);
+            setTasks([...tasks, standardizedTask]);
             setTitle('');
             setDescription('');
         } catch (error) {
@@ -115,15 +119,15 @@ export function TasksList() {
                         <div key={status} className="flex-shrink-0 w-80">
                              <h3 className="text-xl font-bold mb-4">{status}</h3>
                              {groupedTasks[status].length === 0 ? (
-                                <p className="text-gray-500 text-sm">Empty</p>
+                                <p className="text-gray-500 text-sm text-left">Empty</p>
                              ) : (
                                 groupedTasks[status].map((task) => (
                                     <div key={task.id} className="bg-white border border-gray-200 p-4 mb-4 shadow-md rounded-lg hover:shadow-lg transition duration-300">
                                         <div className="flex justify-between">
                                             <h3 className="font-bold text-lg hover:text-xl transition duration-500 ease-in-out ">{task.title}</h3>
                                             <div className="flex space-x-4">
-                                            <button>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-black">
+                                            <button className="text-emerald-500">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
                                                 <path d="m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z" />
                                                 <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z" />
                                                 </svg>
