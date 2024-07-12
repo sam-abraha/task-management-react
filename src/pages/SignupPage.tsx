@@ -15,7 +15,7 @@ export default function SignIn() {
             setSucessMessage(true);
             setTimeout(() => {
                 navigate('/signin');
-            }, 2000);
+            }, 1000);
         } catch (error) {
             console.error('Invalid credentials', error);
         }
@@ -46,7 +46,7 @@ export default function SignIn() {
             </button>
             {successMessage && (
                 <div className="text-center text-xl font-bold mt-4">
-                    <p>Boom. You're signed up. 🎉</p>
+                    <p>Boom. You're signed up.</p>
                 </div>
             )}
 
