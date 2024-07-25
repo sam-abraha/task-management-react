@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+<h1>Task Manager</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p>This repository contains the source code for an intuitive task management web application designed to organize tasks and track their progress.</p>
 
-Currently, two official plugins are available:
+<img width="960" alt="task-manager-react-nestjs" src="https://github.com/user-attachments/assets/506e67e2-2971-490d-adad-ea27b73bcee3">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>Repositories</h2>
 
-## Expanding the ESLint configuration
+<ul>
+	<li><strong>Click</strong><a href="https://github.com/sam-abraha/task-management-nestjs"> here</a> to see the backend repository</li>
+</ul>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h2>Features</h2>
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+<ul>
+	<li><strong>Upload:</strong> Upload tasks.</li>
+	<li><strong>Edit:</strong> Edit task status based on progress.</li>
+	<li><strong>Delete:</strong> Delete your own tasks.</li>
+  <li><strong>Authentication:</strong> Token-based Auth with JWT.</li>
+</ul>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<h2>Technical Stack</h2>
+
+<h3>Backend</h3>
+
+<ul>
+	<li><strong>Language:</strong> TypeScript</li>
+	<li><strong>Framework:</strong> NestJs</li>
+	<li><strong>ORM:</strong> Prisma</li>
+	<li><strong>Database:</strong> PostgreSQL</li>
+	<li><strong>Infrastructure:</strong> Railway</li>
+</ul>
+
+<h3>Frontend</h3>
+
+<ul>
+	<li><strong>Framework:</strong> React</li>
+	<li><strong>Language:</strong> TypeScript</li>
+	<li><strong>Infrastructure:</strong> Netlify</li>
+</ul>
